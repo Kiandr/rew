@@ -1,0 +1,20 @@
+{
+    // Unique id, which results in ssh://serverlogs/
+    "name": "serverlogs",
+    // The label to usually display (uses the name by default)
+    "label": "chicagocondofinder",
+    // Remote folder to use as root (default is /)
+    "root": "/var/www/vhosts/dev.chicagocondofinder.com/app/httpdocs/",
+    // Host to connect to (domain / IPv4 / IPv6)
+    "host": "web-46-hcohen01-01-l9p2.gce.rewhosting.com",
+    // Port to connect to (default is 22)
+    "port": 22,
+    // Username to login with
+    "username": "hcohen",
+    "password":"OuV6KFZYT3kJw3",
+    "password":true,
+    "privateKeyPath": "C:/Code/passwords/rew_kdavoudirad",
+    // Also supports PPK keys
+    "privateKeyPath": "C:/Code/passwords/rew_kdavoudirad.ppk",
+    "passphrase": true
+}
