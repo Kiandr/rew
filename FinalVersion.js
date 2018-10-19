@@ -2,6 +2,7 @@
 (function () {
 	'use strict';   
 	$("#listing-gallery:has(ul[class^=tabset])").find('a[data-target="streetview"]').parent().removeClass('hidden');
+	var googleApiFlagModel =[{'viewIsActive':false},{'streetViewWasCalled':false},{'mapViewWasCalled':false},{'birdViewWasCalled':false}]; //, 'streetViewWasCalled':false, 'mapViewWasCalled':false, 'birdViewWasCalled':false]
 	var viewIsActive = false;
 	var streetViewWasCalled = false;
 	var mapViewWasCalled = false;
@@ -12,7 +13,7 @@
 	//$("#listing-gallery ul[class^='tabset views']")/*.css("border","3px solid red")*/.on('mouseover',function(){
 	
 //	if (viewIsActive===false){
-		viewIsActive = true;
+//		viewIsActive = true;
 	// Shorten listing remarks
 	$('#listing-body .remarks').Truncate();
 
@@ -50,7 +51,7 @@
 		var $link = $(this), target = $link.data('target'), $target = $('#tab-' + target); 
 		$target.removeClass('hidden').siblings().addClass('hidden');
 		$link.parent().addClass('current').siblings().removeClass('current');
-		console.log(target);
+	//	console.log(target);
 		
 		// Close map tooltip
 		var mapInstance = $('#map-canvas').REWMap('getSelf');
@@ -62,7 +63,7 @@
 		if (target === 'map' && typeof $map === 'object') {
 			
 			// Show map container
-			if (typeof mapInstance === 'object' && mapViewWasCalled === false) { mapViewWasCalled = true;
+			if (typeof mapInstance === 'object' && googleApiFlagModel.mapViewWasCalled === false) { googleApiFlagModel.mapViewWasCalled= (!googleApiFlagModel.mapViewWasCalled)
 				$map.REWMap('show', function () {
 					$map.REWMap('setCenter', IDX_LISTING.lat, IDX_LISTING.lng);
 				});
